@@ -65,7 +65,7 @@ for i in range(1,len(inputVar)+1):
 for i in brackets:
     if (i == 1):
         print("Cannot have (I)!")
-    i *= (1000 ** (len(brackets) - (brackets.index(i) + 1) + 1))
-    result += i
-    print(i)
+    else:
+        i *= (1000 ** (len(brackets) - (brackets.index(i) + 1) + 1))
+        result += i
 print("Result: " + str(result))
