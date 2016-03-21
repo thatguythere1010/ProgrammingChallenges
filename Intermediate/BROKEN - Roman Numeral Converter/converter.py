@@ -48,7 +48,10 @@ for i in range(1,len(inputVar)+1):
                 j -= 1
                 if (inputVar[i] == list[j]):
                     var2 = numList[j]
-            if (var1 < var2):
+            if (inputVar[i] == "I"):
+                print("Cannot have I in brackets!")
+                raise SystemExit, 0
+            elif (var1 < var2):
                 var2 = (var2-var1)-var1
                 if ((len(brackets) - 1) == bracketNum):
                     brackets[bracketNum] += var2
@@ -60,12 +63,10 @@ for i in range(1,len(inputVar)+1):
                 else:
                     brackets.insert(bracketNum, var2)
     else:
-        print("Character ", inputVar[i], " is not a roman numeral!")
+        print("Character " + inputVar[i] + " is not a roman numeral!")
+        raise SystemExit, 0
 
 for i in brackets:
-    if (i == 1):
-        print("Cannot have (I)!")
-    else:
-        i *= (1000 ** (len(brackets) - (brackets.index(i) + 1) + 1))
-        result += i
+    i *= (1000 ** (len(brackets) - (brackets.index(i) + 1) + 1))
+    result += i
 print("Result: " + str(result))
